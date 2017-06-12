@@ -1,0 +1,20 @@
+galaxy_info:
+  author: pixelart
+  description: Configures udev rules for Android devices
+  company: pixelart GmbH
+  license: MIT
+
+  min_ansible_version: 2.2
+
+  platforms:
+    - name: Ubuntu
+      versions:
+      - all
+
+  galaxy_tags:
+    - android
+    - udev
+    - debugging
+    - development
+
+dependencies: []

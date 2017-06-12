@@ -1,0 +1,80 @@
+---
+android_udev_vendor_ids:
+  - name: Acer
+    id: '0502'
+  - name: ASUS
+    id: '0b05'
+  - name: Dell
+    id: '413c'
+  - name: Foxconn
+    id: '0489'
+  - name: Fujitsu
+    id: '04c5'
+  - name: Fujitsu Toshiba
+    id: '04c5'
+  - name: Garmin-Asus
+    id: '091e'
+  - name: Google
+    id: '18d1'
+  - name: Haier
+    id: '201E'
+  - name: Hisense
+    id: '109b'
+  - name: HP
+    id: '03f0'
+  - name: HTC
+    id: '0bb4'
+  - name: Huawei
+    id: '12d1'
+  - name: Intel
+    id: '8087'
+  - name: K-Touch
+    id: '24e3'
+  - name: KT Tech
+    id: '2116'
+  - name: Kyocera
+    id: '0482'
+  - name: Lenovo
+    id: '17ef'
+  - name: LG
+    id: '1004'
+  - name: Motorola
+    id: '22b8'
+  - name: MTK
+    id: '0e8d'
+  - name: NEC
+    id: '0409'
+  - name: Nook
+    id: '2080'
+  - name: Nvidia
+    id: '0955'
+  - name: OTGV
+    id: '2257'
+  - name: Pantech
+    id: '10a9'
+  - name: Pegatron
+    id: '1d4d'
+  - name: Philips
+    id: '0471'
+  - name: PMC-Sierra
+    id: '04da'
+  - name: Qualcomm
+    id: '05c6'
+  - name: SK Telesys
+    id: '1f53'
+  - name: Samsung
+    id: '04e8'
+  - name: Sharp
+    id: '04dd'
+  - name: Sony
+    id: '054c'
+  - name: Sony Ericsson
+    id: '0fce'
+  - name: Sony Mobile Communications
+    id: '0fce'
+  - name: Teleepoch
+    id: '2340'
+  - name: Toshiba
+    id: '0930'
+  - name: ZTE
+    id: '19d2'

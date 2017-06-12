@@ -1,0 +1,6 @@
+---
+- name: Configure Android udev rules
+  template:
+    src: 51-android.rules.j2
+    dest: '/etc/udev/rules.d/51-android.rules'
+    mode: '0644'

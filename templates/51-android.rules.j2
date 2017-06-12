@@ -1,0 +1,5 @@
+{% for rule in android_udev_vendor_ids %}
+# {{ rule.name }}
+SUBSYSTEM=="usb", ATTR{idVendor}=="{{ rule.id }}", MODE="0666", GROUP="plugdev"
+
+{% endfor %}

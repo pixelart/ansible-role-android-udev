@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  remote_user: root
+
+  vars:
+    android_udev_vendor_ids:
+      - name: HTC
+        id: '0bb4'
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=yes cache_valid_time=600
+      when: ansible_distribution == 'Ubuntu'
+    - name: Create udev directory (udev not present in test)
+      file:
+        dest: /etc/udev/rules.d
+        state: directory
+
+  roles:
+    - role_under_test

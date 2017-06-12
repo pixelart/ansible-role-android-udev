@@ -1,0 +1,29 @@
+---
+services: docker
+
+env:
+  - distro: ubuntu1604
+
+script:
+  # Configure test script so we can run extra tests after playbook is run.
+  - export container_id=$(date +%s)
+  - export cleanup=false
+
+  # Download test shim.
+  - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
+  - chmod +x ${PWD}/tests/test.sh
+
+  # Run tests.
+  - ${PWD}/tests/test.sh
+
+  # Ensure udev rules are set
+  - 'docker exec --tty ${container_id} env TERM=xterm grep "HTC" /etc/udev/rules.d/51-android.rules'
+  - 'docker exec --tty ${container_id} env TERM=xterm grep "0bb4" /etc/udev/rules.d/51-android.rules'
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+  slack:
+    rooms:
+      secure: "2Nj24biPZ6i7vwyNHu35+XcafQmdReaf9E5JRDnT/ep4BJ2ghK5/dMiKYRPSjIa/fSsP/YQ6NeZbefMDynNy+pW6v3L9KYM0X9GHmqeYuAzvIp3e6tKkgHTF163pQEj+Z5+KPj5kd7DT5/EEF9vTsF3oZBIy8Ty+nMHlwN78w99rHxTUK9/xn2fhUkelINmLJ20Dq70d+2tHDDLJskAZIE4rqamxZXrn9Emjv1d26uzH9VSwQZbxmt2sE7CwS//naZ0BHo9LLH2UL5spNi1PF3dh6MCPYEsF+wUJAtnuuBvKSlwlup9ASADHyapa0JvOksVt59hZdVjUUOoI94S8u+Hpy/cBokgWzt8WIePtzjUY5Kv/GwbO0xA/5Skbvmcoat2N2U4YStXm5gcS6701kRvVIoQU0HVXMeZmbZngzpbE0fqgjy8nS5F3WTa1ILXkI3A/4Smgjr4KcRqLHUMHW0AUinan5HQKsp1QVmMye6On+yYfZF5rAnBC2KQZ7YJI4Gdxx/RZ1qQQOcwMAfIaobi42oshBpKh02V4LWCXjNmFfbLeUIscd8m+fKSSLo23SUFibqvYCx2jPQH/7mZTE94BrdF0xkuj1jjaAePs0w082urpbQvukVx47Y/n9K6k3ul/lC2mRhO9nlrQjYJlqK12N6dzSYJ+jnRiHDpUO1M="
+    on_success: change
+    on_failure: always
